@@ -1,1 +1,3 @@
-# midasChallenge
+# Midas challenge
+
+## Gestión de productos
