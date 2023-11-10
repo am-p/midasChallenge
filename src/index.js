@@ -3,6 +3,7 @@ import { port } from "./config/default.js";
 import { sequelize } from "./database/database.js";
 import { swaggerDocs } from "./swagger.js";
 
+//Initializing the server
 async function main() {
   try {
     await sequelize.sync({ force: false });

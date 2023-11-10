@@ -18,6 +18,8 @@ const router = Router();
  *               type: string
  *               example: Thanks for register
  */
+
+// This endpoint is for creating user
 router.post("/users/register", createUser);
 
 /**
@@ -35,6 +37,8 @@ router.post("/users/register", createUser);
  *               type: string
  *               example: { name, jwtTtoken }
  */
+
+// This endpoint is for authenticate the user
 router.post("/users/login", loginUser);
 
 export default router;

@@ -8,6 +8,7 @@ const jwtOptions = {
   secretOrKey: secret.jwtSecret,
 };
 
+//configurate strategy and register calling 'use' for determining the user
 passport.use(
   new Strategy(jwtOptions, async (payload, next) => {
     const user = await Users.findOne({
