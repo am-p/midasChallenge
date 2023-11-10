@@ -5,6 +5,9 @@ import bcrypt from "bcrypt";
 
 export const createUser = async (req, res) => {
   const { name, email, password } = req.body;
+  if (!password || !email || !name) {
+    res.status(400).json({ message: "Provide full data" });
+  }
   const passwordHashed = await bcrypt.hash(password, 8);
 
   try {
@@ -14,7 +17,7 @@ export const createUser = async (req, res) => {
       password: passwordHashed,
     });
 
-    res.json("Thanks for register");
+    res.json({ message: "Thanks for register" });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
