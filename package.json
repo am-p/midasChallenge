@@ -1,7 +1,7 @@
 {
   "name": "midas",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Gestión de productos Desarrolla una API REST para gestionar productos de un catálogo.",
   "main": "index.js",
   "type": "module",
   "scripts": {

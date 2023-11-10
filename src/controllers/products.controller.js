@@ -17,7 +17,10 @@ export const createProduct = async (req, res) => {
 
 export const getProducts = async (req, res) => {
   try {
-    const { name, priceRange, category, page, pageSize } = req.query;
+    const { name, priceRange, category, sortBy, sortOrder } = req.query;
+
+    const page = parseInt(req.query.page, 10) || 1;
+    const pageSize = parseInt(req.query.pageSize, 10) || 10;
     const filters = {};
 
     if (name) {
@@ -34,12 +37,13 @@ export const getProducts = async (req, res) => {
       };
     }
 
+    const order = sortBy ? [[sortBy, sortOrder || "ASC"]] : [];
     const offset = (page - 1) * pageSize;
     const limit = pageSize;
 
     const products = await Products.findAll({
       where: filters,
-      order: [["price", "ASC"]],
+      order,
       offset,
       limit,
     });

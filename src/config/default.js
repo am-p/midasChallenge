@@ -11,3 +11,7 @@ export const db = {
 export const secret = {
   jwtSecret: process.env.JWT_SECRET,
 };
+
+export const port = {
+  serverPort: process.env.PORT,
+};
